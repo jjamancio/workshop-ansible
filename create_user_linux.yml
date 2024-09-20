@@ -1,6 +1,6 @@
 ---
 - name: Cria usuario linux
-  hosts: node2, node3
+  hosts: node2.lab.example.com, node3.lab.example.com
   become: true
 
   tasks:
