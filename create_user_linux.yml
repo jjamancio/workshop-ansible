@@ -1,0 +1,22 @@
+---
+- name: Cria usuario linux
+  hosts: node2, node3
+  become: true
+
+  tasks:
+    - name: garante que o grupo "devops" existe
+      ansible.builtin.group:
+        name: devops
+        state: present
+        
+    - name: Adiciona usuario 'james' com shell bash, grupo 'devops' e chave SSH
+      ansible.builtin.user:
+        name: james
+        shell: /bin/bash
+        create_home: yes
+        groups: devops
+        append: yes
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+        state: present
