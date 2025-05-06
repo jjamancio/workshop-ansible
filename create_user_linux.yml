@@ -1,5 +1,5 @@
 ---
-- name: Cria usuario linux
+- name: Cria usuariom e grupo linux
   hosts: all
   become: true
 
